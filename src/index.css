@@ -1,0 +1,140 @@
+:root{
+  --bg:#f6f8fa;--surface:#ffffff;--ink:#17212b;--muted:#5a6978;--line:#dde4ea;
+  --blue:#0b6fd6;--blue-dark:#0a4fa0;--green:#1f9d4c;--red:#e3201b;--yellow:#ffc82c;
+  --tint-yellow:#fff6d9;--tint-green:#e6f6ec;--tint-blue:#e8f2fd;
+  --hero1:#1a8cf0;--hero2:#0a58b8;--footer:#1b2229;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    color-scheme:dark;
+    --bg:#15181c;--surface:#1f242a;--ink:#eef2f6;--muted:#a3afbb;--line:#2e353d;
+    --blue:#5aaeff;--blue-dark:#7dbcff;--green:#4cc97a;--red:#ff6b64;--yellow:#ffd24d;
+    --tint-yellow:#272313;--tint-green:#14251b;--tint-blue:#162230;
+    --hero1:#1569c4;--hero2:#0b3f80;--footer:#0f1215
+  }
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Nunito,system-ui,sans-serif;line-height:1.6;font-size:17px}
+h1,h2,h3{font-family:'Baloo 2',Nunito,system-ui,sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+.wrap{max-width:1020px;margin:0 auto;padding:0 20px}
+
+/* Navigasi: putih/abu, logo hijau */
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:3px solid var(--yellow)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:24px;color:var(--green);text-decoration:none}
+.logo b{color:var(--blue)}
+.nav nav{display:flex;gap:18px;font-weight:700;font-size:15px}
+.nav nav a{text-decoration:none;color:var(--muted);padding:4px 2px;border-bottom:2px solid transparent}
+.nav nav a:hover,.nav nav a:focus-visible{color:var(--ink);border-bottom-color:var(--green)}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+
+/* Hero: satu-satunya area biru penuh */
+.hero{background:linear-gradient(160deg,var(--hero1),var(--hero2));color:#fff;padding:56px 0 72px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.hero h1{font-size:clamp(40px,7vw,72px);font-weight:800}
+.hero p{font-size:19px;max-width:30em;opacity:.95}
+.badge{background:#fff;color:#e3201b;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:clamp(44px,8vw,84px);line-height:.95;padding:22px 26px;transform:rotate(-3deg);text-align:center;
+  clip-path:polygon(0 6%,8% 0,20% 5%,35% 0,52% 4%,70% 0,86% 5%,100% 0,98% 40%,100% 70%,97% 100%,80% 95%,60% 100%,40% 96%,22% 100%,6% 95%,0 100%,2% 60%);
+  filter:drop-shadow(0 6px 0 var(--yellow))}
+.badge small{display:block;font-size:.3em;color:#17212b;letter-spacing:.04em;margin-top:6px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid #fff;color:#fff}
+.btn.solid{background:var(--yellow);border-color:var(--yellow);color:#17212b}
+.btn:hover{transform:translateY(-1px)}
+
+/* Bagian-bagian dengan warna latar berbeda */
+section{padding:64px 0 !important}
+section:not([id]){background:var(--surface)}
+#harga{background:var(--tint-yellow)}
+#hitung{background:var(--tint-green)}
+#cara{background:var(--surface)}
+#info{background:var(--tint-blue)}
+section h2{font-size:clamp(30px,5vw,44px);color:var(--ink);margin-bottom:8px}
+section h2::after{content:"";display:block;width:56px;height:5px;border-radius:3px;margin-top:8px;background:var(--green)}
+#harga h2::after{background:var(--red)}
+#hitung h2::after{background:var(--green)}
+#cara h2::after{background:var(--blue)}
+#info h2::after{background:var(--yellow)}
+.sub{color:var(--muted);margin:12px 0 28px;max-width:38em}
+
+/* Slogan: tiap chip beda warna */
+.slogans{display:flex;flex-wrap:wrap;gap:12px}
+.slogans span{border-radius:12px;padding:10px 22px;font-family:'Baloo 2',sans-serif;font-weight:800;font-size:22px;color:#fff}
+.slogans span:nth-child(1){background:var(--blue-dark)}
+.slogans span:nth-child(2){background:var(--green)}
+.slogans span:nth-child(3){background:var(--yellow);color:#17212b}
+.slogans span:nth-child(4){background:var(--red)}
+.slogans span{color:#fff}
+.slogans span:nth-child(3){color:#17212b}
+
+/* Daftar harga */
+.prices{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 22px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row:nth-child(even){background:color-mix(in srgb,var(--bg) 70%,transparent)}
+.row .n{font-weight:700;font-size:18px}
+.row .d{display:block;font-weight:400;font-size:14px;color:var(--muted)}
+.row .p{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:22px;color:var(--green);white-space:nowrap;text-align:right}
+.row .p small{font-family:Nunito,sans-serif;font-weight:600;font-size:13px;color:var(--muted)}
+.note{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+.note span{color:#fff;font-weight:700;padding:8px 16px;border-radius:8px;font-size:15px}
+.note span:nth-child(1){background:var(--blue-dark)}
+.note span:nth-child(2){background:var(--red)}
+
+/* Kalkulator */
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+label{display:block;font-weight:700;margin:0 0 6px;font-size:15px}
+select,input[type=number]{width:100%;padding:12px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;margin-bottom:16px}
+select:focus,input[type=number]:focus{border-color:var(--green)}
+.calc .card:last-child{border-top:6px solid var(--green)}
+.total{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:44px;color:var(--green);line-height:1}
+
+/* Cara kerja: tiap langkah beda warna garis atas */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.steps .card{border-top:6px solid var(--blue)}
+.steps .card:nth-child(2){border-top-color:var(--green)}
+.steps .card:nth-child(3){border-top-color:var(--yellow)}
+.steps .card:nth-child(4){border-top-color:var(--red)}
+.steps .card h3{font-size:22px;color:var(--ink);margin-bottom:6px}
+.steps p{margin:0;color:var(--muted)}
+
+/* Info gerai */
+.info{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.info .card:first-child{border-left:6px solid var(--yellow)}
+.info .card:last-child{border-left:6px solid var(--green)}
+.info a{color:var(--green);font-weight:700}
+.big{font-family:'Baloo 2',sans-serif;font-weight:800;font-size:40px;color:var(--ink);line-height:1}
+
+/* Footer: abu arang, bukan biru */
+footer{background:var(--footer);color:#fff;padding:32px 0;text-align:center;font-size:15px;border-top:5px solid var(--green)}
+footer b{font-family:'Baloo 2',sans-serif;font-size:20px;color:var(--yellow)}
+
+@media (max-width:760px){
+  .hero .wrap,.calc,.info{grid-template-columns:1fr}
+  .nav nav{display:none}
+  .hero{padding:40px 0 56px}
+  section{padding:48px 0 !important}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+/* Ikon sosial media & kontak */
+.social{display:flex;gap:12px;margin:4px 0 0}
+.social a{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;color:#fff;transition:transform .15s}
+.social a:hover{transform:translateY(-2px)}
+.social a svg{width:24px;height:24px}
+.social .ig{background:linear-gradient(45deg,#f9a825,#e1306c 55%,#7b3fc4)}
+.social .wa{background:#25d366}
+.divider{border:0;border-top:1px solid var(--line);margin:18px 0}
+.contact-row{display:flex;gap:12px;align-items:flex-start;margin:0 0 14px;font-weight:700}
+.contact-row svg{flex:none;width:22px;height:22px;margin-top:3px;color:var(--green)}
+.contact-row a{text-decoration:none}
+.contact-row a:hover{text-decoration:underline}
+
+/* Tombol WhatsApp melayang */
+.wa-float{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:30;display:grid;place-items:center;width:60px;height:60px;border-radius:50%;background:#25d366;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.3);transition:transform .15s}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:32px;height:32px}
+@media (prefers-reduced-motion:reduce){.social a,.wa-float{transition:none}}
