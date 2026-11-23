@@ -69,6 +69,7 @@ function Nav() {
           <a href="#harga">Daftar harga</a>
           <a href="#hitung">Hitung biaya</a>
           <a href="#cara">Cara kerja</a>
+          <a href="#galeri">Galeri</a>
           <a href="#info">Info</a>
         </nav>
       </div>
@@ -209,6 +210,28 @@ function Cara() {
     </section>
   )
 }
+function Galeri() {
+  const foto = [
+    { src: '/foto-gerai.png', alt: 'Tampak depan gerai MaXpress Coin Laundry', cap: 'Tampak depan toko' },
+    { src: '/foto-mesin.png', alt: 'Mesin cuci dan pengering Maytag di dalam gerai', cap: 'Mesin Maytag Commercial Laundry' },
+  ]
+  return (
+    <section id="galeri" style={{ paddingTop: 0 }}>
+      <div className="wrap">
+        <h2>Lihat gerai kami</h2>
+        <p className="sub">Mesin Maytag yang kami pakai dan lokasi gerai tempat Anda bisa datang.</p>
+        <div className="galeri">
+          {foto.map((f) => (
+            <figure key={f.src}>
+              <img src={f.src} alt={f.alt} loading="lazy" />
+              <figcaption>{f.cap}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 function Info() {
   return (
     <section id="info" style={{ paddingTop: 0 }}>
@@ -257,6 +280,7 @@ export default function App() {
       <Harga />
       <Hitung />
       <Cara />
+      <Galeri />
       <Info />
       <footer>
         <div className="wrap">
@@ -277,4 +301,3 @@ export default function App() {
     </>
   )
 }
-      
